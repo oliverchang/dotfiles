@@ -1,0 +1,24 @@
+syn on
+
+set nocompatible
+set backspace=2
+
+set number
+set ruler
+set nowrap
+
+set expandtab
+set tabstop=3
+set shiftwidth=3
+
+set autoindent
+set smartindent
+
+filetype on
+filetype plugin on
+filetype indent on
+
+set vb t_vb=
+
+set background=dark
+colorscheme smyck
