@@ -4,6 +4,7 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_REDUCE_BLANKS
+setopt AUTOPUSHD
 
 HISTFILE=~/.zsh_history
 SAVEHIST=1000
@@ -24,6 +25,7 @@ bindkey -v
 alias ls='ls --color=auto'
 alias open='gvfs-open 2> /dev/null'
 alias xclip='xclip -selection c'
+alias b='pushd'
 
 function precmd() {
    print -Pn "\e]2;%m:%-3~ $a\a"
