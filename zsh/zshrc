@@ -4,7 +4,7 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_REDUCE_BLANKS
-setopt AUTOPUSHD
+setopt AUTO_PUSHD
 
 HISTFILE=~/.zsh_history
 SAVEHIST=1000
@@ -21,6 +21,9 @@ export EDITOR=vim
 export TERM=xterm-256color
 
 bindkey -v
+bindkey '^?' backward-delete-char
+bindkey '^K' history-beginning-search-backward
+bindkey '^J' history-beginning-search-forward
 
 alias ls='ls --color=auto'
 alias open='gvfs-open 2> /dev/null'
