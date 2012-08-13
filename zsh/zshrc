@@ -28,7 +28,7 @@ bindkey '^J' history-beginning-search-forward
 alias ls='ls --color=auto'
 alias open='gvfs-open 2> /dev/null'
 alias xclip='xclip -selection c'
-alias b='pushd'
+alias b='popd'
 
 function precmd() {
    print -Pn "\e]2;%m:%-3~ $a\a"
