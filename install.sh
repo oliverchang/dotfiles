@@ -12,3 +12,6 @@ mkdir -p "$HOME/.vim/autoload"
 ln -sf `pwd`/vim/colors/* "$HOME/.vim/colors"
 ln -sf `pwd`/vim/bundle/* "$HOME/.vim/bundle"
 ln -sf `pwd`/vim/autoload/* "$HOME/.vim/autoload"
+
+git submodule init
+git submodule update
