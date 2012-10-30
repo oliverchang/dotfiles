@@ -3,10 +3,21 @@ syn on
 set nocompatible
 set backspace=2
 
+filetype off
+set rtp+=~/.vim/bundle/vundle
+
+" Use Vundle to manage plugins
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'Rip-Rip/clang_complete'
+
 set number
 set ruler
 set nowrap
 
+" Use 3 spaces by default for indentation
 set expandtab
 set tabstop=3
 set shiftwidth=3
@@ -14,12 +25,11 @@ set shiftwidth=3
 set autoindent
 set smartindent
 
-call pathogen#infect()
-
 filetype on
 filetype plugin on
 filetype indent on
 
+" Use 2 spaces for ruby code
 autocmd FileType ruby set tabstop=2 shiftwidth=2
 
 set vb t_vb=
