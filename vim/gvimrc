@@ -1,12 +1,2 @@
-set guifont=DejaVu\ Sans\ Mono\ 8
-set guioptions-=m
-set guioptions-=T
-set guioptions-=r
-set cursorline
-
-set columns=80
-set lines=25
-
+" vb and t_vb are reset when gvim starts
 set vb t_vb=
-
-set gcr=a:blinkon0

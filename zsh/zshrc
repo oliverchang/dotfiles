@@ -46,6 +46,6 @@ man() {
          man "$@"
 }
 
-if [ -e "$HOME/.zshrc_local" ]; then
-   source "$HOME/.zshrc_local"
+if [ -e "$HOME/.zshrc.local" ]; then
+   source "$HOME/.zshrc.local"
 fi
