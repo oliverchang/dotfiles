@@ -1,0 +1,2 @@
+# Fix for copy/paste in OSX
+set-option -g default-command "reattach-to-user-namespace -l zsh"
