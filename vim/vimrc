@@ -7,6 +7,8 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Rip-Rip/clang_complete'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'tpope/vim-surround'
 
 syntax on
 
@@ -61,3 +63,6 @@ endif
 if filereadable("vimrc.custom") 
    so vimrc.custom
 endif
+
+" Plugin settings
+let g:EasyMotion_leader_key = ','
