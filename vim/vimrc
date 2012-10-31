@@ -9,6 +9,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
+Bundle 'benmills/vimux'
 
 syntax on
 
@@ -63,6 +64,10 @@ endif
 if filereadable("vimrc.custom") 
    so vimrc.custom
 endif
+
+" Keybindings
+map <F9> :PromptVimTmuxCommand<Enter>
+map <F10> :RunLastVimTmuxCommand<Enter>
 
 " Plugin settings
 let g:EasyMotion_leader_key = ','
