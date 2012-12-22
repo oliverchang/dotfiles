@@ -10,13 +10,14 @@ Bundle 'Rip-Rip/clang_complete'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
 Bundle 'benmills/vimux'
+Bundle 'tpope/vim-rails'
 
 syntax on
 
 set nocompatible
 set backspace=2
 
-set number
+" set number
 set ruler
 set nowrap
 
