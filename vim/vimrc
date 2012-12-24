@@ -34,6 +34,7 @@ filetype indent on
 
 " Use 2 spaces for ruby code
 autocmd FileType ruby set tabstop=2 shiftwidth=2
+autocmd FileType eruby set tabstop=2 shiftwidth=2
 
 set vb t_vb=
 
