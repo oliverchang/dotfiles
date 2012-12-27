@@ -73,3 +73,7 @@ map <F10> :RunLastVimTmuxCommand<Enter>
 
 " Plugin settings
 let g:EasyMotion_leader_key = ','
+
+" Remove delay in exiting insert mode when 
+" pressing <ESC> 
+set noesckeys
