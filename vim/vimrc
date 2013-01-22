@@ -72,9 +72,18 @@ endif
 map <F9> :PromptVimTmuxCommand<Enter>
 map <F10> :RunLastVimTmuxCommand<Enter>
 
-" Plugin settings
+" EasyMotion key
 let g:EasyMotion_leader_key = ','
 
 " Remove delay in exiting insert mode when 
 " pressing <ESC> 
 set noesckeys
+
+" Set system clipboard as default
+if has("unix") && substitute(system("uname"), "\n", "", "") == "Linux"
+   " Set X clipboard as default
+   set clipboard=unnamedplus
+else
+   set clipboard=unnamed
+endif
+
