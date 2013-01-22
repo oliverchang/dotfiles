@@ -1,0 +1,43 @@
+{
+	"default_module": "powerline.segments.common",
+	"segments": {
+		"left": [
+			{
+				"name": "user"
+			},
+			{
+				"name": "external_ip",
+				"before": "ⓦ  "
+			},
+			{
+				"name": "network_load"
+			},
+			{
+				"name": "uptime",
+				"before": "⇑  "
+			}
+		],
+		"right": [
+			{
+				"name": "system_load"
+			},
+			{
+				"name": "cpu_load_percent"
+			},
+			{
+				"name": "weather"
+			},
+			{
+				"name": "date",
+				"args": {"format": "%a"}
+			},
+			{
+				"name": "date"
+			},
+			{
+				"name": "date",
+				"args": {"format": "%H:%M"}
+			}
+		]
+	}
+}
