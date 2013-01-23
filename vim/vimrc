@@ -10,6 +10,7 @@ Bundle 'Rip-Rip/clang_complete'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
 Bundle 'benmills/vimux'
+Bundle 'Shougo/neocomplcache'
 " Bundle 'tpope/vim-rails'
 
 syntax on
@@ -74,6 +75,23 @@ map <F10> :RunLastVimTmuxCommand<Enter>
 
 " EasyMotion key
 let g:EasyMotion_leader_key = ','
+
+" neocomplcache settings
+let g:neocomplcache_enable_at_startup = 1
+
+if !exists('g:neocomplcache_force_omni_patterns')
+  let g:neocomplcache_force_omni_patterns = {}
+endif
+
+let g:neocomplcache_force_overwrite_completefunc = 1
+let g:neocomplcache_force_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplcache_force_omni_patterns.objc = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplcache_force_omni_patterns.objcpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+let g:clang_complete_auto = 0
+let g:clang_auto_select = 0
 
 " Remove delay in exiting insert mode when 
 " pressing <ESC> 

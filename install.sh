@@ -35,6 +35,6 @@ if [ -z "$XDG_CONFIG_HOME" ]; then
    XDG_CONFIG_HOME="$HOME/.config"
 fi
 
-ln -sf `pwd`/vim/powerline "$XDG_CONFIG_HOME/powerline"
+ln -sf `pwd`/vim/powerline "$XDG_CONFIG_HOME"
 
 echo "Done!"
