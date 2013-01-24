@@ -7,7 +7,7 @@
 			},
 			{
 				"type": "filler",
-				"highlight": ["background"]
+				"highlight_group": ["background"]
 			}
 		],
 		"right": [
@@ -15,13 +15,13 @@
 				"name": "line_percent",
 				"args": { "gradient": true },
 				"priority": 30,
-				"after": "",
+				"after": "",
 				"rjust": 4
 			},
 			{
 				"type": "string",
 				"contents": " ",
-				"highlight": ["line_current_symbol", "line_current"]
+				"highlight_group": ["line_current_symbol", "line_current"]
 			},
 			{
 				"name": "line_current",
