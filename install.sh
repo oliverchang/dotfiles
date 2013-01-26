@@ -18,16 +18,16 @@ mkdir -p "$HOME/.vim"
 mkdir -p "$HOME/.vim/colors"
 mkdir -p "$HOME/.vim/bundle"
 
-echo "Creating symlinks to vim colors and bundle.."
+if [ ! -d "$HOME/.vim/bundle/vundle" ]; then
+   echo "Installing vundle..."
+   git clone git://github.com/gmarik/vundle.git "$HOME/.vim/bundle/vundle"
+fi
+
+echo "Creating symlinks to vim colors..."
 ln -sf `pwd`/vim/colors/* "$HOME/.vim/colors"
-ln -sf `pwd`/vim/bundle/* "$HOME/.vim/bundle"
 
-echo "Updating git submodules..."
-git submodule init
-git submodule update
-
-echo "Running :BundleInstall from vim"
-vim +BundleInstall +qall
+echo "Running :BundleInstall! from vim..."
+vim +BundleInstall! +qall
 
 echo "Adding personal powerline config..."
 
