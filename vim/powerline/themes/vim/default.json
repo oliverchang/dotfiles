@@ -69,8 +69,8 @@
 				"name": "line_percent",
 				"args": { "gradient": true },
 				"priority": 30,
-				"after": "%%",
-				"rjust": 5
+				"after": "%",
+				"rjust": 4
 			},
 			{
 				"type": "string",
