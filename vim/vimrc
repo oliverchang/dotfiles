@@ -27,11 +27,6 @@ set backspace=2
 set autoindent
 set smartindent
 
-syntax on
-filetype on
-filetype plugin on
-filetype indent on
-
 " Use 2 spaces for ruby code and html
 autocmd FileType ruby,eruby set tabstop=2 shiftwidth=2
 autocmd FileType html set tabstop=2 shiftwidth=2
@@ -109,3 +104,14 @@ autocmd FileType ruby,eruby g:rubycomplete_rails = 1
 
 " clang_complete settings 
 let g:clang_use_library = 1
+
+" go syntax highlighting 
+if executable("go")
+   let go_vim_path = substitute(system("go env GOROOT"), "\n", "", "") . '/misc/vim'
+   let &rtp = &rtp . ',' . go_vim_path
+endif
+
+syntax on
+filetype on
+filetype plugin on
+filetype indent on
