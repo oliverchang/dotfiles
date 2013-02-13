@@ -35,6 +35,7 @@ set vb t_vb=
 
 set laststatus=2
 set encoding=utf-8
+set noshowmode
 
 set background=dark
 colorscheme smyck
