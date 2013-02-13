@@ -1,5 +1,6 @@
 {
 	"common": {
+		"term_24bit_colors": false,
 		"dividers": {
 			"left": {
 				"hard": "",
@@ -12,6 +13,10 @@
 		}
 	},
 	"ext": {
+		"ipython": {
+			"colorscheme": "default",
+			"theme": "default"
+		},
 		"shell": {
 			"colorscheme": "default",
 			"theme": "default"
@@ -24,8 +29,13 @@
 			"colorscheme": "default",
 			"theme": "default",
 			"local_themes": {
+				"cmdwin": "cmdwin",
 				"help": "help"
 			}
+		},
+		"wm": {
+			"colorscheme": "default",
+			"theme": "default"
 		}
 	}
 }
