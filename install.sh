@@ -29,12 +29,23 @@ ln -sf `pwd`/vim/colors/* "$HOME/.vim/colors"
 echo "Running :BundleInstall! from vim..."
 vim +BundleInstall! +qall
 
-echo "Adding personal powerline config..."
+echo "Modifying powerline vim theme..."
 
 if [ -z "$XDG_CONFIG_HOME" ]; then
    XDG_CONFIG_HOME="$HOME/.config"
 fi
 
-ln -sf `pwd`/vim/powerline "$XDG_CONFIG_HOME"
+powerline_conf_dir="$XDG_CONFIG_HOME/powerline"
+mkdir -p "$powerline_conf_dir"
+mkdir -p "$powerline_conf_dir/themes/vim"
+
+for file in "$HOME/.vim/bundle/powerline/powerline/config_files/"*.json; do 
+   # only allow ascii characters in the theme
+   python remove_nonascii.py "$file" > "$powerline_conf_dir"/`basename "$file"` 
+done
+
+for file in "$HOME/.vim/bundle/powerline/powerline/config_files/themes/vim/"*.json; do 
+   python remove_nonascii.py "$file" > "$powerline_conf_dir"/themes/vim/`basename "$file"` 
+done
 
 echo "Done!"
