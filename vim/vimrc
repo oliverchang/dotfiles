@@ -40,12 +40,13 @@ set noshowmode
 set background=dark
 colorscheme smyck
 
+set cursorline
+
 " GUI settings
 if has("gui_running")
    set guioptions-=m
    set guioptions-=T
    set guioptions-=r
-   set cursorline
 
    " Get rid of blinking cursor
    set gcr=a:blinkon0
