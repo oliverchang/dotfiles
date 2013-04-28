@@ -8,9 +8,11 @@ ln -sf `pwd`/zsh/zshrc "$HOME/.zshrc"
 ln -sf `pwd`/tmux/tmux.conf "$HOME/.tmux.conf"
 
 if [ `uname` = "Darwin" ]; then
-   # Fix copy/paste for OSX
+   # Fix copy/paste for OSX in tmux
    echo "Creating a symlink to a tmux copy/paste fix for OSX..."
    ln -sf `pwd`/tmux/tmux.conf.osx "$HOME/.tmux.conf.osx"
+else
+   echo '' > "$HOME/.tmux.conf.osx"
 fi
 
 echo "Creating .vim folder..."
