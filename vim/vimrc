@@ -13,6 +13,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
 Bundle 'benmills/vimux'
 Bundle 'Shougo/neocomplcache'
+Bundle 'kien/ctrlp.vim'
 
 set ruler
 set nowrap
@@ -123,7 +124,7 @@ function! LoadCscope()
     set cscopeverbose
   endif
 endfunction
-au BufEnter /* call LoadCscope()
+au BufEnter * call LoadCscope()
 
 syntax on
 filetype on
