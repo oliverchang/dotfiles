@@ -7,15 +7,15 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Bundle 'vim-scripts/CSApprox'
+Bundle 'Pychimp/vim-luna'
+Bundle 'bling/vim-airline'
 Bundle 'Rip-Rip/clang_complete'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-surround'
-Bundle 'benmills/vimux'
 Bundle 'Shougo/neocomplcache'
 Bundle 'kien/ctrlp.vim'
 
-set ruler
 set nowrap
 
 " Use 3 spaces by default for indentation
@@ -25,8 +25,8 @@ set shiftwidth=3
 
 set backspace=2
 
-set autoindent
-set smartindent
+set autoindent smartindent
+set smarttab
 
 " Use 2 spaces for ruby code and html
 autocmd FileType ruby,eruby set tabstop=2 shiftwidth=2
@@ -39,9 +39,12 @@ set encoding=utf-8
 set noshowmode
 
 set background=dark
-colorscheme smyck
+colorscheme luna
 
 set cursorline
+
+" airline settings
+let g:airline#extensions#tabline#enabled = 1
 
 " GUI settings
 if has("gui_running")
@@ -54,13 +57,13 @@ if has("gui_running")
 endif
 
 " Global local configuration
-if filereadable(expand("~/.vimrc.local")) 
+if filereadable(expand("~/.vimrc.local"))
    so ~/.vimrc.local
 endif
 
 " Load custom vimrc if it exists in the directory
 " vim was opened in
-if filereadable("vimrc.custom") 
+if filereadable("vimrc.custom")
    so vimrc.custom
 endif
 
@@ -71,8 +74,8 @@ map <F10> :RunLastVimTmuxCommand<Enter>
 " EasyMotion key
 let g:EasyMotion_leader_key = ','
 
-" Remove delay in exiting insert mode when 
-" pressing <ESC> 
+" Remove delay in exiting insert mode when
+" pressing <ESC>
 set noesckeys
 
 " Set system clipboard as default
@@ -105,10 +108,10 @@ autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
-" clang_complete settings 
+" clang_complete settings
 let g:clang_use_library = 1
 
-" go syntax highlighting 
+" go syntax highlighting
 if executable("go")
    let go_vim_path = substitute(system("go env GOROOT"), "\n", "", "") . '/misc/vim'
    let &rtp = &rtp . ',' . go_vim_path
