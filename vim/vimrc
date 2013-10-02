@@ -11,8 +11,6 @@ Bundle 'vim-scripts/CSApprox'
 Bundle 'Pychimp/vim-luna'
 Bundle 'bling/vim-airline'
 Bundle 'Rip-Rip/clang_complete'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'tpope/vim-surround'
 Bundle 'Shougo/neocomplcache'
 Bundle 'kien/ctrlp.vim'
 
@@ -45,6 +43,8 @@ set cursorline
 
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 
 " GUI settings
 if has("gui_running")
@@ -66,10 +66,6 @@ endif
 if filereadable("vimrc.custom")
    so vimrc.custom
 endif
-
-" Keybindings
-map <F9> :PromptVimTmuxCommand<Enter>
-map <F10> :RunLastVimTmuxCommand<Enter>
 
 " EasyMotion key
 let g:EasyMotion_leader_key = ','
