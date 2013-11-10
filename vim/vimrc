@@ -27,8 +27,11 @@ set autoindent smartindent
 set smarttab
 
 " Use 2 spaces for ruby code and html
-autocmd FileType ruby,eruby set tabstop=2 shiftwidth=2
-autocmd FileType html set tabstop=2 shiftwidth=2
+au FileType ruby,eruby setl tabstop=2 shiftwidth=2
+au FileType html setl tabstop=2 shiftwidth=2
+
+" Paragraph formatting options
+au FileType plaintex,tex setl textwidth=78 formatoptions=at
 
 set vb t_vb=
 
@@ -67,9 +70,6 @@ if filereadable("vimrc.custom")
    so vimrc.custom
 endif
 
-" EasyMotion key
-let g:EasyMotion_leader_key = ','
-
 " Remove delay in exiting insert mode when
 " pressing <ESC>
 set noesckeys
@@ -106,12 +106,6 @@ autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
 
 " clang_complete settings
 let g:clang_use_library = 1
-
-" go syntax highlighting
-if executable("go")
-   let go_vim_path = substitute(system("go env GOROOT"), "\n", "", "") . '/misc/vim'
-   let &rtp = &rtp . ',' . go_vim_path
-endif
 
 " look for cscope dbs by going to parent directories
 function! LoadCscope()
