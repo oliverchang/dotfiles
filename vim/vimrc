@@ -10,9 +10,9 @@ Bundle 'gmarik/vundle'
 Bundle 'vim-scripts/CSApprox'
 Bundle 'Pychimp/vim-luna'
 Bundle 'bling/vim-airline'
-Bundle 'Rip-Rip/clang_complete'
-Bundle 'Shougo/neocomplcache'
 Bundle 'kien/ctrlp.vim'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'scrooloose/syntastic'
 
 set nowrap
 
@@ -31,7 +31,7 @@ au FileType ruby,eruby setl tabstop=2 shiftwidth=2
 au FileType html setl tabstop=2 shiftwidth=2
 
 " Paragraph formatting options
-au FileType plaintex,tex setl textwidth=78 formatoptions=at
+au FileType plaintex,tex setl textwidth=80 formatoptions=atw
 
 set vb t_vb=
 
@@ -70,8 +70,7 @@ if filereadable("vimrc.custom")
    so vimrc.custom
 endif
 
-" Remove delay in exiting insert mode when
-" pressing <ESC>
+" Remove delay in exiting insert mode when pressing <ESC>
 set noesckeys
 
 " Set system clipboard as default
@@ -82,42 +81,7 @@ else
    set clipboard=unnamed
 endif
 
-" neocomplcache settings
-let g:neocomplcache_enable_at_startup = 1
-
-if !exists('g:neocomplcache_force_omni_patterns')
-  let g:neocomplcache_force_omni_patterns = {}
-endif
-
-let g:neocomplcache_force_overwrite_completefunc = 1
-let g:neocomplcache_force_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplcache_force_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplcache_force_omni_patterns.objc = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_force_omni_patterns.objcpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-
-" Ruby completion settings
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-
-" clang_complete settings
-let g:clang_use_library = 1
-
-" look for cscope dbs by going to parent directories
-function! LoadCscope()
-  let db = findfile("cscope.out", ".;")
-  if (!empty(db))
-    let path = strpart(db, 0, match(db, "/cscope.out$"))
-    set nocscopeverbose " suppress 'duplicate connection' error
-    exe "cs add " . db . " " . path
-    set cscopeverbose
-  endif
-endfunction
-au BufEnter * call LoadCscope()
+let g:ycm_global_ycm_extra_conf = expand("~/.vim/ycm_extra_conf.py")
 
 syntax on
 filetype on

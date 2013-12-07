@@ -4,6 +4,7 @@ echo "Creating symlinks to config files..."
 ln -sf `pwd`/vim/vimrc "$HOME/.vimrc"
 ln -sf `pwd`/vim/gvimrc "$HOME/.gvimrc"
 ln -sf `pwd`/zsh/zshrc "$HOME/.zshrc"
+ln -sf `pwd`/ycm_extra_conf.py "$HOME/.vim/ycm_extra_conf.py"
 
 ln -sf `pwd`/tmux/tmux.conf "$HOME/.tmux.conf"
 
