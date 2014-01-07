@@ -64,12 +64,6 @@ if filereadable(expand("~/.vimrc.local"))
    so ~/.vimrc.local
 endif
 
-" Load custom vimrc if it exists in the directory
-" vim was opened in
-if filereadable("vimrc.custom")
-   so vimrc.custom
-endif
-
 " Remove delay in exiting insert mode when pressing <ESC>
 set noesckeys
 
