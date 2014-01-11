@@ -13,6 +13,7 @@ Bundle 'bling/vim-airline'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
+Bundle 'edkolev/tmuxline.vim'
 
 set nowrap
 
@@ -46,8 +47,10 @@ set cursorline
 
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+let g:airline_theme = 'bubblegum'
+"let g:airline_left_sep = ''
+"let g:airline_right_sep = ''
+let g:airline_powerline_fonts = 1
 
 " GUI settings
 if has("gui_running")

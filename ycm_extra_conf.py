@@ -1,3 +1,4 @@
+from sys import platform
 import os
 import ycm_core
 
@@ -8,11 +9,9 @@ flags = [
 '-Wall',
 '-Wextra',
 '-Werror',
-'-Wc++98-compat',
 '-Wno-long-long',
 '-Wno-variadic-macros',
 '-fexceptions',
-'-DNDEBUG',
 # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
 # language to use when compiling headers. So it will guess. Badly. So C++
 # headers will be compiled as C headers. You don't want that so ALWAYS specify
@@ -48,10 +47,16 @@ flags = [
 './tests/gmock',
 '-isystem',
 './tests/gmock/include',
+]
+
+default_includes = [
 '-isystem',
 '/usr/include',
 '-isystem',
 '/usr/local/include',
+]
+
+osx_flags = [
 '-isystem',
 '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1',
 '-isystem',
@@ -60,14 +65,16 @@ flags = [
 '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include',
 ]
 
-
-# Set this to the absolute path to the folder (NOT the file!) containing the
-# compile_commands.json file to use that instead of 'flags'. See here for
-# more details: http://clang.llvm.org/docs/JSONCompilationDatabase.html
-#
-# Most projects will NOT need to set this to anything; you can just change the
-# 'flags' list of compilation flags. Notice that YCM itself uses that approach.
+# Keep looking in parent directories until database is found
 compilation_database_folder = ''
+cur_path = os.getcwd()
+
+while cur_path != '/' and not os.path.exists(
+    os.path.join(cur_path, 'compile_commands.json')):
+  cur_path = os.path.dirname(cur_path)
+
+if cur_path != '/':
+    compilation_database_folder = cur_path
 
 if os.path.exists( compilation_database_folder ):
   database = ycm_core.CompilationDatabase( compilation_database_folder )
@@ -131,6 +138,9 @@ def GetCompilationInfoForFile( filename ):
     return None
   return database.GetCompilationInfoForFile( filename )
 
+def DefaultFlags():
+    relative_to = DirectoryOfThisScript()
+    return MakeRelativePathsInFlagsAbsolute( flags, relative_to )
 
 def FlagsForFile( filename, **kwargs ):
   if database:
@@ -138,14 +148,18 @@ def FlagsForFile( filename, **kwargs ):
     # python list, but a "list-like" StringVec object
     compilation_info = GetCompilationInfoForFile( filename )
     if not compilation_info:
-      return None
-
-    final_flags = MakeRelativePathsInFlagsAbsolute(
-      compilation_info.compiler_flags_,
-      compilation_info.compiler_working_dir_ )
+      final_flags = DefaultFlags()
+    else:
+      final_flags = MakeRelativePathsInFlagsAbsolute(
+        compilation_info.compiler_flags_,
+        compilation_info.compiler_working_dir_ )
   else:
-    relative_to = DirectoryOfThisScript()
-    final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
+    final_flags = DefaultFlags();
+
+  final_flags.extend(default_includes)
+
+  if platform == 'darwin':
+    final_flags.extend(osx_flags)
 
   return {
     'flags': final_flags,
