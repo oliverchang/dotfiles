@@ -16,7 +16,9 @@ promptinit
 
 autoload -U colors && colors
 
-export PROMPT="%{%B$fg[green]%}[%n@%m %c]$%{$reset_color%b%} "
+export PROMPT="%{%B$fg[green]%}%n%{%B$fg[red]%}@%m%{%b$fg[blue]%} %~
+%{%b$fg[cyan]%}▶%{$reset_color%b%} "
+
 export EDITOR=vim
 export TERM=xterm-256color
 
@@ -26,8 +28,6 @@ bindkey '^K' history-beginning-search-backward
 bindkey '^J' history-beginning-search-forward
 
 alias ls='ls --color=auto'
-alias open='gvfs-open 2> /dev/null'
-alias xclip='xclip -selection c'
 alias b='popd'
 
 function precmd() {
