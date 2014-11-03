@@ -37,7 +37,8 @@ set encoding=utf-8
 set noshowmode
 
 set background=dark
-colorscheme base16-tomorrow
+set t_Co=256
+colorscheme base16-eighties
 
 set cursorline
 
