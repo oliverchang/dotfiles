@@ -53,3 +53,15 @@ fi
 if [ -n "$TMUX" ]; then
    export TERM=screen-256color
 fi
+
+# git aliases
+alias g='git'
+alias ga='git add'
+alias gco='git checkout'
+alias gci='git commit'
+alias gb='git branch'
+alias gm='git merge'
+alias gst='git status'
+alias gf='git fetch'
+alias gl='git log'
+alias gp='git pull'
