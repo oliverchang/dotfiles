@@ -1,18 +1,21 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
-
 " Use Vundle to manage plugins
-call vundle#rc()
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'chriskempson/base16-vim'
 Bundle 'octol/vim-cpp-enhanced-highlight'
+
+call vundle#end()
+filetype plugin indent on
 
 set nowrap
 
@@ -78,6 +81,4 @@ endif
 let g:ycm_global_ycm_extra_conf = expand("~/.vim/ycm_extra_conf.py")
 
 syntax on
-filetype on
-filetype plugin on
-filetype indent on
+autocmd BufEnter * setlocal shiftwidth=2 tabstop=2 expandtab
