@@ -26,6 +26,9 @@ if [ ! -d "$HOME/.vim/bundle/vundle" ]; then
    git clone git://github.com/gmarik/vundle.git "$HOME/.vim/bundle/vundle"
 fi
 
+mkdir -p ~/.config/nvim
+ln -s `pwd`/init.vim ~/.config/nvim/init.vim
+
 echo "Running :BundleInstall! from vim..."
 vim +BundleInstall! +qall
 

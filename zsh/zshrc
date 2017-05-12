@@ -20,14 +20,18 @@ export PROMPT="%{%B$fg[green]%}%n%{%B$fg[red]%}@%m%{%b$fg[blue]%} %~
 %{%b$fg[cyan]%}▶%{$reset_color%b%} "
 
 export EDITOR=vim
-export TERM=xterm-256color
 
 bindkey -v
 bindkey '^?' backward-delete-char
 bindkey '^K' history-beginning-search-backward
 bindkey '^J' history-beginning-search-forward
 
-alias ls='ls --color=auto'
+if [[ $(uname) == "Darwin" ]]; then
+  alias ls='ls -G'
+else
+  alias ls='ls --color=auto'
+fi
+
 alias b='popd'
 
 function precmd() {
@@ -46,11 +50,11 @@ man() {
          man "$@"
 }
 
-if [ -e "$HOME/.zshrc.local" ]; then
+if [[ -e "$HOME/.zshrc.local" ]]; then
    source "$HOME/.zshrc.local"
 fi
 
-if [ -n "$TMUX" ]; then
+if [[ -n "$TMUX" ]]; then
    export TERM=screen-256color
 fi
 
