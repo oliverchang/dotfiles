@@ -19,17 +19,17 @@ fi
 echo "Creating .vim folder..."
 mkdir -p "$HOME/.vim"
 mkdir -p "$HOME/.vim/colors"
-mkdir -p "$HOME/.vim/bundle"
 
-if [ ! -d "$HOME/.vim/bundle/vundle" ]; then
-   echo "Installing vundle..."
-   git clone git://github.com/gmarik/vundle.git "$HOME/.vim/bundle/vundle"
-fi
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+mkdir -p ~/.local/share/nvim/site/autoload
+ln -sf ~/.vim/autoload/plug.vim ~/.local/share/nvim/site/autoload/plug.vim
 
 mkdir -p ~/.config/nvim
-ln -s `pwd`/init.vim ~/.config/nvim/init.vim
+ln -sf `pwd`/init.vim ~/.config/nvim/init.vim
 
-echo "Running :BundleInstall! from vim..."
-vim +BundleInstall! +qall
+echo "Running :PlugInstall! from vim..."
+vim +PlugInstall +qall
 
 echo "Done!"

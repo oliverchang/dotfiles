@@ -1,24 +1,20 @@
 let g:google = filereadable('/usr/share/vim/google/google.vim')
-
 set nocompatible
-filetype off
 
-" Use Vundle to manage plugins
-set rtp+=~/.vim/bundle/vundle
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Bundle 'gmarik/vundle'
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'tpope/vim-fugitive'
-Bundle 'scrooloose/syntastic'
-Bundle 'chriskempson/base16-vim'
-Bundle 'octol/vim-cpp-enhanced-highlight'
-Bundle 'fatih/vim-go'
+Plug 'gmarik/vundle'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+Plug 'chriskempson/base16-vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'fatih/vim-go'
 
-call vundle#end()
+call plug#end()
+
 filetype plugin indent on
-
 set nowrap
 
 " Use 2 spaces by default for indentation
