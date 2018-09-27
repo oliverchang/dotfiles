@@ -1,3 +1,5 @@
+let g:google = filereadable('/usr/share/vim/google/google.vim')
+
 set nocompatible
 filetype off
 
@@ -6,13 +8,13 @@ set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
 Bundle 'gmarik/vundle'
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'chriskempson/base16-vim'
 Bundle 'octol/vim-cpp-enhanced-highlight'
+Bundle 'fatih/vim-go'
 
 call vundle#end()
 filetype plugin indent on
@@ -48,8 +50,8 @@ set cursorline
 " airline settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'tomorrow'
-"let g:airline_left_sep = ''
-"let g:airline_right_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 let g:airline_powerline_fonts = 1
 
 " GUI settings
@@ -67,9 +69,6 @@ if filereadable(expand("~/.vimrc.local"))
    so ~/.vimrc.local
 endif
 
-" Remove delay in exiting insert mode when pressing <ESC>
-set noesckeys
-
 " Set system clipboard as default
 if has("unix") && substitute(system("uname"), "\n", "", "") == "Linux"
    " Set X clipboard as default
@@ -78,7 +77,16 @@ else
    set clipboard=unnamed
 endif
 
-let g:ycm_global_ycm_extra_conf = expand("~/.vim/ycm_extra_conf.py")
-
 syntax on
 autocmd BufEnter * setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd BufEnter *.go setlocal shiftwidth=8 tabstop=8 noexpandtab
+
+set termguicolors
+
+if g:google
+  source /usr/share/vim/google/google.vim
+  Glug youcompleteme-google
+endif
+
+set rtp+=~/.fzf
+nmap <c-p> :FZF<CR>
