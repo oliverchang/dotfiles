@@ -11,6 +11,8 @@ Plug 'scrooloose/syntastic'
 Plug 'chriskempson/base16-vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'fatih/vim-go'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
@@ -84,5 +86,4 @@ if g:google
   Glug youcompleteme-google
 endif
 
-set rtp+=~/.fzf
 nmap <c-p> :FZF<CR>
